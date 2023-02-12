@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/drawable/background.xml" value="0.1955" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/drawable/backgrountbtn.xml" value="0.1955" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/drawable/bsckgrountbtn.xml" value="0.1955" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/drawable/fragmentfragment.xml" value="0.1955" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/drawable/ic_logo.xml" value="0.18" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/drawable/logo.xml" value="0.1955" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/layout/activity_splash_schreen.xml" value="0.11594202898550725" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/layout/logingfragment.xml" value="0.12702702702702703" />
+        <entry key="..\:/Android Class/BulkeStamping/app/src/main/res/layout/singupfragment.xml" value="0.12702702702702703" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

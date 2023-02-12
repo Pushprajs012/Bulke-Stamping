@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myuser.UserDeshboard">
+
+   <com.google.android.material.textview.MaterialTextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintVertical_bias=".015"
+       android:text="Oder E-stamp"
+       android:inputType="number"
+       android:singleLine="true"
+       android:layout_marginStart="10dp"
+       android:id="@+id/odertv"
+       android:textSize="52sp"
+       android:textAppearance="@style/TextAppearance.AppCompat.Large"
+       android:textStyle="bold"
+       android:textColor="@color/estampt"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
+
+   </com.google.android.material.textview.MaterialTextView>
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintVertical_bias=".05"
+       android:text="@string/article"
+       android:textSize="22sp"
+       android:layout_margin="10dp"
+       android:id="@+id/article"
+       android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/odertv"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       />
+
+   <Spinner
+       android:id="@+id/spinnerforarticle"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="10dp"
+       android:layout_marginEnd="10dp"
+       android:minHeight="48sp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/article"
+       app:layout_constraintVertical_bias=".0"
+       tools:ignore="SpeakableTextPresentCheck" />
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintVertical_bias=".05"
+       android:text="@string/name"
+       android:singleLine="true"
+       android:ellipsize="marquee"
+       android:marqueeRepeatLimit ="marquee_forever"
+       android:focusable="true"
+       android:focusableInTouchMode="true"
+       android:scrollHorizontally="true"
+       android:textSize="22sp"
+       android:layout_margin="10dp"
+       android:id="@+id/name"
+       android:textAppearance="@style/TextAppearance.AppCompat.Large"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/spinnerforarticle"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       />
+
+   <com.google.android.material.textfield.TextInputLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/name"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintVertical_bias="0.01"
+       android:id="@+id/enterpartyname"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      app:counterEnabled="true"
+      app:counterMaxLength="50"
+      style="@style/ThemeOverlay.Material3.TextInputEditText">
+      <com.google.android.material.textfield.TextInputEditText
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+         android:hint="@string/enterpartyname"
+          android:singleLine="true"
+          android:textSize="18sp"
+          />
+
+   </com.google.android.material.textfield.TextInputLayout>
+
+   <TextView
+       android:id="@+id/price"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+       android:text="@string/price"
+       android:textAppearance="@style/TextAppearance.AppCompat.Large"
+       android:textSize="26sp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@id/ammount"
+       app:layout_constraintHorizontal_bias="0.30"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/enterpartyname"
+       app:layout_constraintVertical_bias=".05" />
+
+   <EditText
+       android:id="@+id/ammount"
+       android:layout_width="150dp"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="10dp"
+       android:hint="max 210"
+       android:inputType="number"
+       android:singleLine="true"
+       android:maxLength="3"
+       android:minWidth="48dp"
+       android:textSize="26sp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintHorizontal_bias=".9"
+       app:layout_constraintTop_toBottomOf="@id/enterpartyname"
+       app:layout_constraintVertical_bias=".05" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/novelue"
+       android:textSize="26sp"
+       android:layout_margin="10dp"
+       android:id="@+id/noofstamp"
+       android:textAppearance="@style/TextAppearance.AppCompat.Large"
+       app:layout_constraintBottom_toBottomOf="@id/noofestamp"
+       app:layout_constraintTop_toTopOf="@id/noofestamp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toStartOf="@id/noofestamp"
+       />
+
+   <EditText
+       android:id="@+id/noofestamp"
+       android:layout_width="150dp"
+       app:layout_constraintVertical_bias=".05"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="10dp"
+       android:hint="min 30"
+       android:maxLength="3"
+       android:minWidth="48dp"
+       android:textSize="26sp"
+       android:inputType="number"
+       android:singleLine="true"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="@id/ammount"
+       app:layout_constraintStart_toStartOf="@id/ammount"
+       app:layout_constraintTop_toBottomOf="@id/ammount" />
+
+
+   <Button
+       android:id="@+id/oderestamp"
+       android:layout_marginEnd="60dp"
+       android:layout_marginStart="60dp"
+       android:text="ई-स्टाम्प खरीदे"
+       android:textSize="25sp"
+       app:layout_constraintTop_toBottomOf="@id/noofstamp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       android:backgroundTint="@color/fortwxt"
+       android:layout_width="match_parent"
+       app:layout_constraintVertical_bias=".1"
+       android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/backdialog"
+    android:id="@+id/stampconfirmlayout"
+    android:layout_height="wrap_content">
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="20sp" android:text="आर्टिकल"
+      android:layout_marginStart="20dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+    android:id="@+id/tvnameartivle"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintVertical_bias=".0"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="a"
+        android:id="@+id/tvfornameartivle"
+        android:singleLine="true"
+        app:layout_constraintVertical_bias=".0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvnameartivle"/>
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:id="@+id/view1"
+      android:layout_gravity="center"
+      android:background="@color/black"
+      app:layout_constraintTop_toBottomOf="@id/tvfornameartivle"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="20dp"
+      />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:text="@string/name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:id="@+id/tvname"
+        app:layout_constraintVertical_bias=".0"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit ="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:scrollHorizontally="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:id="@+id/tvforname"
+        android:text="a"
+        app:layout_constraintVertical_bias=".0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvname"/>
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:id="@+id/view2"
+      android:layout_gravity="center"
+      android:background="@color/black"
+      app:layout_constraintTop_toBottomOf="@id/tvforname"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="20dp"
+      />
+
+  <TextView
+      android:id="@+id/kitneestamp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/novelue"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/tvnoestamp"
+      app:layout_constraintTop_toBottomOf="@id/view2"
+      app:layout_constraintVertical_bias=".0" />
+  <TextView
+      android:id="@+id/tvnoestamp"
+      android:layout_width="150dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:hint="max 210"
+      android:minWidth="48dp"
+      android:textSize="25sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/rsstamp"
+      app:layout_constraintTop_toTopOf="@id/kitneestamp"
+      app:layout_constraintVertical_bias=".0" />
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:id="@+id/view3"
+      android:layout_gravity="center"
+      android:background="@color/black"
+      app:layout_constraintTop_toBottomOf="@id/kitneestamp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="20dp"
+      />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="20sp"
+      android:text="@string/price"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:id="@+id/kitneeruapykastamp"
+      android:layout_marginStart="20dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintVertical_bias=".0"
+      app:layout_constraintHorizontal_bias=".0"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/view3"/>
+  <TextView
+      android:id="@+id/rsstamp"
+      android:layout_width="150dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:hint="max 210"
+      android:minWidth="48dp"
+      android:textSize="25sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/kitneeruapykastamp"
+      app:layout_constraintTop_toTopOf="@id/kitneeruapykastamp"
+      app:layout_constraintVertical_bias=".0" />
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:id="@+id/view4"
+      android:layout_gravity="center"
+      android:background="@color/black"
+      app:layout_constraintTop_toBottomOf="@id/kitneeruapykastamp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="20dp"
+      />
+
+
+  <TextView
+      android:id="@+id/rupay"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/rupay"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textSize="20sp"
+      android:layout_marginEnd="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/tvrupay"
+      app:layout_constraintTop_toBottomOf="@id/view4"
+      app:layout_constraintVertical_bias=".0" />
+  <TextView
+      android:id="@+id/tvrupay"
+      android:layout_width="150dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:hint="max 210"
+      android:minWidth="48dp"
+      android:textSize="25sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/rsstamp"
+      app:layout_constraintTop_toTopOf="@id/rupay"
+      app:layout_constraintVertical_bias=".0" />
+
+  <TextView
+      android:id="@+id/extrachrage"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/extrachare"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textSize="20sp"
+      android:layout_marginEnd="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/why"
+      app:layout_constraintTop_toBottomOf="@id/rupay"
+      app:layout_constraintVertical_bias=".0" />
+  <TextView
+      android:id="@+id/why"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/why"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textSize="15sp"
+      android:textColor="@color/blue"
+      android:layout_marginEnd="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/tvrupay"
+      app:layout_constraintTop_toBottomOf="@id/rupay"
+      app:layout_constraintVertical_bias=".0" />
+  <TextView
+      android:id="@+id/tvextracharge"
+      android:layout_width="150dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:hint="max 210"
+      android:minWidth="48dp"
+      android:textSize="25sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/rsstamp"
+      app:layout_constraintTop_toTopOf="@id/extrachrage"
+      app:layout_constraintVertical_bias=".0" />
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:id="@+id/view5"
+      android:layout_gravity="center"
+      android:background="#F30F0F"
+      app:layout_constraintTop_toBottomOf="@id/extrachrage"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="20dp"
+      />
+
+  <TextView
+      android:id="@+id/totalrupay"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/totalrupay"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textSize="20sp"
+      android:layout_marginEnd="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/tvrupay"
+      app:layout_constraintTop_toBottomOf="@id/view5"
+      app:layout_constraintVertical_bias=".0" />
+  <TextView
+      android:id="@+id/tvtotalrupay"
+      android:layout_width="150dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:hint="max 210"
+      android:minWidth="48dp"
+      android:textSize="25sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/rsstamp"
+      app:layout_constraintTop_toTopOf="@id/totalrupay"
+      app:layout_constraintVertical_bias=".0" />
+
+  <Button
+        android:id="@+id/oderbtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/fortwxt"
+        android:text="@string/oder"
+      android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintVertical_bias=".0"
+      app:layout_constraintTop_toBottomOf="@id/totalrupay"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">Login</string>
+    <string name="singup">Singup</string>
+    <string name="entername">Enter Your Name</string>
+    <string name="enterno">मोबाईल नम्बर दर्ज करे</string>
+    <string name="enteremail">अपनी ईमेल दर्ज करे</string>
+    <string name="address">पता लिखे</string>
+    <string name="pin">पिन कोड</string>
+    <string name="article">आर्टिकल चुने</string>
+    <string name="name">Purchased by, First Party, Stamp Duty Paid By</string>
+    <string name="enterpartyname">अग्रेजी में नाम लिखे</string>
+    <string name="price">ई-स्टाम्प रूपये वेल्यु</string>
+    <string name="novelue">कितने ई-स्टाम्प </string>
+    <string name="rupay">रुपये</string>
+    <string name="extrachare">अतिरिक्त चार्ज</string>
+    <string name="totalrupay">टोटल रुपये</string>
+    <string name="why">(क्यो?)</string>
+    <string name="oder">खरीदे</string>
+    <string name="successmassgae">आपकी ई-स्टाम्प ऑडर सफलतापूर्वक दर्ज कर दिया गया है ।</string>
+    <string name="callingmassge">हम जल्द ही आपको कॉल करगे ।</string>
+    <string name="coder">ऑडर</string>
+    <string name="help">मदद</string>
+    <string name="coderno">ऑडर नं0-</string>
+    <string name="oderfail">ऑ़डर फेल, कृपया पुन: प्रयास करे ।</string>
+    <string name="logout">लॉग आउट</string>
+</resources>
