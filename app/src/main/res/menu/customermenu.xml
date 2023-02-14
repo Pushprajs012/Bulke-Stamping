@@ -13,6 +13,8 @@
         android:id="@+id/help"
         android:icon="@drawable/help_24"
         app:showAsAction="withText"/>
+<item android:title="@string/seller"
+    android:id="@+id/seller"/>
     <item android:title="@string/logout"
         android:id="@+id/logout"/>
 

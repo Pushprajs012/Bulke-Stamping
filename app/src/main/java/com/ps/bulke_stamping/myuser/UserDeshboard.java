@@ -307,8 +307,10 @@ private long cheakchild() {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater= getMenuInflater();
         menuInflater.inflate(R.menu.customermenu,menu);
+        menu.getItem(4).setEnabled(false);
         return super.onCreateOptionsMenu(menu);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -338,4 +340,6 @@ private long cheakchild() {
         return super.onOptionsItemSelected(item);
 
     }
+
+
 }
