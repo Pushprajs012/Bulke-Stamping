@@ -45,12 +45,13 @@ public class UserDeshboard extends AppCompatActivity {
     private FirebaseUser user;
     private Spinner spinnerartical;
     private EditText forammount,forno;
+
     private TextInputLayout etname;
     private ArrayList<String> articlearraylist;
     private ArrayAdapter<String> articlearrayadapter;
     private String selected;
     private Button oderbuttn,finaloder;
-    private long datacount=0,forchild=0;
+    long datacount=0;
     private int stampno,stampammount,extraammount;
     private AlertDialog alertDialogrs;
     private TextView tvammount,tvextracharge,tvtotalammount,tvarticle,tvpartyname,tvstampno,tvpricewithoutextracharge,txtMarquee,txtMarqueetwo;
@@ -258,15 +259,16 @@ public class UserDeshboard extends AppCompatActivity {
 
 
 public void oder() {
-        OderDetail oderDetail= new OderDetail(appActivity.getFirebaseAuth().getUid(),etname.getEditText().getText().toString(),String.valueOf(stampno),String.valueOf(stampammount),new Date().toString(),String.valueOf(cheakchild()));
+        //OderDetail oderDetail= new OderDetail(appActivity.getFirebaseAuth().getUid(),etname.getEditText().getText().toString(),String.valueOf(stampno),String.valueOf(stampammount),new Date().toString(),String.valueOf(cheakchild()+1));
 
 
-        appActivity.getMyRef().child("Oder").child(String.valueOf(cheakchild())).setValue(oderDetail).addOnCompleteListener(task -> {
+        appActivity.getMyRef().child("Oder").child(String.valueOf(cheakchild()+1)).setValue(new OderDetail(appActivity.getFirebaseAuth().getUid(),etname.getEditText().getText().toString(),String.valueOf(stampno),String.valueOf(stampammount),new Date().toString(),String.valueOf(datacount+1))).addOnCompleteListener(task -> {
             Intent successIntent = new Intent(this, Successoder.class);
 
             if (task.isSuccessful()){
                 Toast.makeText(this, "Oder Successful", Toast.LENGTH_LONG).show();
-                successIntent.putExtra("odernumber", String.valueOf(cheakchild()));
+                successIntent.putExtra("odernumber", String.valueOf(datacount));
+                System.out.println(cheakchild()+"child");
                 successIntent.putExtra("istrue",true);
                 startActivity(successIntent);
 
@@ -289,9 +291,8 @@ private long cheakchild() {
                if (snapshot.exists())
                {
                    datacount=(snapshot.getChildrenCount());
-                 forchild=datacount+1;
-               }
 
+               }
             }
 
             @Override
@@ -300,7 +301,7 @@ private long cheakchild() {
             }
         });
 
-      return forchild;
+      return datacount;
 }
 
     @Override

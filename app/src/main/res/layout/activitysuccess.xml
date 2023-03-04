@@ -38,7 +38,7 @@
         android:layout_margin="30dp"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:text="@string/coderno"
+        android:text="@string/printcoderno"
         android:textSize="40sp"
         android:textColor="@color/common_google_signin_btn_text_light_default"
         app:layout_constraintStart_toStartOf="parent"

@@ -23,7 +23,7 @@
     <string name="lastoder">पीछले ऑडर</string>
     <string name="aboutus">"हमारे बारे में "</string>
     <string name="help">मदद</string>
-    <string name="coderno">ऑडर नं0-</string>
+    <string name="printcoderno">ऑडर नं0-</string>
     <string name="oderfail">ऑ़डर फेल, कृपया पुन: प्रयास करे ।</string>
     <string name="logout">लॉग आउट</string>
     <string name="seller">विक्रेता बने</string>

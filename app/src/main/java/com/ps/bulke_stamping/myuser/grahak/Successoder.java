@@ -21,28 +21,29 @@ public class Successoder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activitysuccess);
 
+        init();
 
+        Bundle intent=getIntent().getExtras();
+       String oderno=intent.getString("odernumber");
+       Boolean istrue=intent.getBoolean("istrue");
 
-        Intent intent=getIntent();
-       String oderno=intent.getStringExtra("odernumber");
-       Boolean istrue=intent.getBooleanExtra("istrue",false);
+        System.out.println(istrue+"value of istrue");
+        System.out.println(oderno);
 
         if (istrue) {
             lottieAnimationView.setAnimation(R.raw.newone);
             odermassage.setText(R.string.successmassgae);
-            showoderno.setText(R.string.coderno+oderno);
+            showoderno.setText(getString(R.string.printcoderno)+oderno);
             callingmassage.setText(R.string.callingmassge);
             lottieAnimationView.playAnimation();
-
         }
-
-        else
+        else {
             lottieAnimationView.setAnimation(R.raw.fail);
             odermassage.setText(R.string.oderfail);
             callingmassage.setVisibility(View.INVISIBLE);
             lottieAnimationView.playAnimation();
 
-
+        }
     }
 
     private void init(){
