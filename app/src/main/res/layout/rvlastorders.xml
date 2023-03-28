@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:padding="10dp"
+         android:layout_height="match_parent">
+
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="@string/partyname"
+             android:id="@+id/rvprintpartyname"
+             android:textSize="30sp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             android:textStyle="bold"/>
+
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="@string/partyname"
+             android:layout_marginStart="5dp"
+             android:id="@+id/rvppartyname"
+             android:textSize="30sp"
+             app:layout_constraintStart_toEndOf="@id/rvprintpartyname"
+             app:layout_constraintTop_toTopOf="parent"
+             android:textStyle="bold"/>
+
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="@string/printcoderno"
+             android:id="@+id/rvprintoderno"
+             android:textSize="30sp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/rvprintpartyname"
+             android:textStyle="bold"/>
+
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="@string/printcoderno"
+             android:layout_marginStart="5dp"
+             android:id="@+id/rvoderno"
+             android:textSize="30sp"
+             app:layout_constraintStart_toEndOf="@id/rvprintoderno"
+             app:layout_constraintTop_toTopOf="@id/rvprintoderno"
+             android:textStyle="bold"/>
+
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="रूपये:-"
+             android:layout_marginStart="5dp"
+             android:id="@+id/rvrupaystampprint"
+             android:textSize="30sp"
+             app:layout_constraintStart_toStartOf="@id/rvprintoderno"
+             app:layout_constraintTop_toBottomOf="@id/rvprintoderno"
+             />
+
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="10"
+             android:layout_marginStart="5dp"
+             android:id="@+id/rvrupaystamp"
+             android:textSize="30sp"
+             app:layout_constraintStart_toEndOf="@id/rvrupaystampprint"
+             app:layout_constraintTop_toBottomOf="@id/rvprintoderno"
+             android:textColor="@color/estampt"
+             />
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="कितने ई0:-"
+             android:layout_marginStart="5dp"
+             android:id="@+id/rvnoofstampprint"
+             android:textSize="30sp"
+             app:layout_constraintStart_toEndOf="@id/rvrupaystamp"
+             app:layout_constraintTop_toBottomOf="@id/rvprintoderno"
+
+             />
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="10"
+             android:layout_marginStart="5dp"
+             android:id="@+id/rvnoofstamp"
+             android:textSize="30sp"
+             app:layout_constraintStart_toEndOf="@id/rvnoofstampprint"
+             app:layout_constraintTop_toBottomOf="@id/rvprintoderno"
+             android:textColor="@color/estampt"
+             />
+         <androidx.appcompat.widget.AppCompatButton
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/cancel"
+             android:textSize="20sp"
+             android:id="@+id/cancel"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="@id/rvoderno"
+             app:layout_constraintBottom_toBottomOf="@id/rvnoofstamp"
+             app:layout_constraintCircleRadius="50dp"/>
+
+         <com.google.android.material.divider.MaterialDivider
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:id="@+id/divider"
+             app:layout_constraintTop_toBottomOf="@id/rvnoofstamp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:dividerColor="#BAD64F4F"
+             android:layout_margin="5dp"/>
+
+
+
+<com.google.android.material.progressindicator.LinearProgressIndicator
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/progressBar"
+    app:trackThickness="15dp"
+    android:layout_margin="10dp"
+    app:trackCornerRadius="20dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/divider"
+    android:scrollbarSize="20dp"
+    />
+
+
+         <Button
+             android:layout_width="30dp"
+             android:id="@+id/btn1"
+             android:layout_height="30dp"
+             android:background="@drawable/gola1"
+             android:text="1"
+             app:layout_constraintBottom_toBottomOf="@id/progressBar"
+             app:layout_constraintEnd_toEndOf="@id/progressBar"
+             app:layout_constraintHorizontal_bias="0.2"
+             app:layout_constraintStart_toStartOf="@id/progressBar"
+             app:layout_constraintTop_toTopOf="@id/progressBar" />
+
+         <Button
+             android:layout_width="30dp"
+             android:id="@+id/btn2"
+             android:layout_height="30dp"
+             android:background="@drawable/gola1"
+             android:text="1"
+             app:layout_constraintBottom_toBottomOf="@id/progressBar"
+             app:layout_constraintEnd_toEndOf="@id/progressBar"
+             app:layout_constraintHorizontal_bias="0.6"
+             app:layout_constraintStart_toStartOf="@id/progressBar"
+             app:layout_constraintTop_toTopOf="@id/progressBar" />
+
+         <Button
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+             android:id="@+id/btn3"
+             android:background="@drawable/gola1"
+             android:text="1"
+             app:layout_constraintBottom_toBottomOf="@id/progressBar"
+             app:layout_constraintEnd_toEndOf="@id/progressBar"
+             app:layout_constraintHorizontal_bias="1.0"
+             app:layout_constraintStart_toStartOf="@id/progressBar"
+             app:layout_constraintTop_toTopOf="@id/progressBar" />
+         <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:text="@string/partyname"
+             android:id="@+id/status"
+             android:textSize="30sp"
+             android:layout_marginStart="20dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/btn1"
+             android:textStyle="italic"/>
+
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

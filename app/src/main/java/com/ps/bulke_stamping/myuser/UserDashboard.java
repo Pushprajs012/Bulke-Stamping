@@ -22,25 +22,25 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.ps.bulke_stamping.AppActivity;
-import com.ps.bulke_stamping.DetailClasses.OderDetail;
+import com.ps.bulke_stamping.DetailClasses.OrderDetail;
 import com.ps.bulke_stamping.MainActivity;
 import com.ps.bulke_stamping.R;
 import com.ps.bulke_stamping.myuser.grahak.GrahkDetail;
 import com.ps.bulke_stamping.myuser.grahak.Successoder;
-import com.ps.bulke_stamping.myuser.grahak.oldoders;
+import com.ps.bulke_stamping.myuser.grahak.oldorders;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 
-public class UserDeshboard extends AppCompatActivity {
+
+public class UserDashboard extends AppCompatActivity {
     private AppActivity appActivity;
     private FirebaseUser user;
     private Spinner spinnerartical;
@@ -61,11 +61,16 @@ public class UserDeshboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_deshboard);
 
-        getSupportActionBar().setTitle("Ps Cyber Cafe");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.toolbar)));
 
 
         initobject();
+
+        Bundle intent=getIntent().getExtras();
+        boolean isuserhavedetail=intent.getBoolean("isuserhavedetail");
+
+
+
         txtMarquee.setSelected(true);
         spinnerartical.setAdapter(articlearrayadapter);
 
@@ -99,14 +104,7 @@ public class UserDeshboard extends AppCompatActivity {
             }
         });
 
-       try{
-            if (appActivity.getUserDetail().getPin()==null){
-
-            }
-
-        }
-
-        catch (Exception e) {
+        if (!isuserhavedetail){
             cheakuser();
         }
 
@@ -114,7 +112,7 @@ public class UserDeshboard extends AppCompatActivity {
 
     private void cheakuser(){
 
-            AlertDialog alertDialog=new AlertDialog.Builder(UserDeshboard.this)
+            AlertDialog alertDialog=new AlertDialog.Builder(UserDashboard.this)
                     .setView(R.layout.alertdialoguserinfo)
                     .setInverseBackgroundForced(false)
                     .setCancelable(false)
@@ -131,7 +129,7 @@ public class UserDeshboard extends AppCompatActivity {
 
             alertDialog.findViewById(R.id.alersubmitbtn).setOnClickListener(view -> {
                 alertDialog.cancel();
-                startActivity(new Intent(UserDeshboard.this, GrahkDetail.class));
+                startActivity(new Intent(UserDashboard.this, GrahkDetail.class));
 
             });
 
@@ -160,8 +158,8 @@ public class UserDeshboard extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         oderbuttn.setOnClickListener(view -> {
             cheakfild();
-            if (cheakfild()==true) {
-                alertDialogrs = new AlertDialog.Builder(UserDeshboard.this)
+            if (cheakfild()) {
+                alertDialogrs = new AlertDialog.Builder(UserDashboard.this)
                         .setView(R.layout.layoutforconfirm)
                         .setInverseBackgroundForced(false)
                         .show();
@@ -203,7 +201,7 @@ public class UserDeshboard extends AppCompatActivity {
                 tvtotalammount.setText("₹" + String.valueOf(tammount));
 
                 finaloder.setOnClickListener(view1 -> {
-
+                    alertDialogrs.dismiss();
                    oder();
 
                 });
@@ -259,14 +257,17 @@ public class UserDeshboard extends AppCompatActivity {
 
 
 public void oder() {
-        //OderDetail oderDetail= new OderDetail(appActivity.getFirebaseAuth().getUid(),etname.getEditText().getText().toString(),String.valueOf(stampno),String.valueOf(stampammount),new Date().toString(),String.valueOf(cheakchild()+1));
+       // OrderDetail orderDetail= new OrderDetail(appActivity.getFirebaseAuth().getUid(),selected,String.valueOf(cheakchild()+1),String.valueOf(stampno),String.valueOf(stampammount),new Date().toString(),"ram",)
 
+    Intent successIntent = new Intent(this, Successoder.class);
 
-        appActivity.getMyRef().child("Oder").child(String.valueOf(cheakchild()+1)).setValue(new OderDetail(appActivity.getFirebaseAuth().getUid(),etname.getEditText().getText().toString(),String.valueOf(stampno),String.valueOf(stampammount),new Date().toString(),String.valueOf(datacount+1))).addOnCompleteListener(task -> {
-            Intent successIntent = new Intent(this, Successoder.class);
+    appActivity.getExecutorService().execute(new Runnable() {
+        @Override
+        public void run() {
+        cheakchild();
+        appActivity.getMyRef().child("Order").child(String.valueOf(cheakchild()+1)).setValue(new OrderDetail(appActivity.getFirebaseAuth().getUid(),selected,String.valueOf(cheakchild()+1),String.valueOf(stampno),String.valueOf(stampammount),new Date().toString(),etname.getEditText().getText().toString(),0)).addOnCompleteListener(task -> {
 
             if (task.isSuccessful()){
-                Toast.makeText(this, "Oder Successful", Toast.LENGTH_LONG).show();
                 successIntent.putExtra("odernumber", String.valueOf(datacount));
                 System.out.println(cheakchild()+"child");
                 successIntent.putExtra("istrue",true);
@@ -274,18 +275,20 @@ public void oder() {
 
             }
             else {
-                Toast.makeText(this, "Oder Unsuccessful", Toast.LENGTH_LONG).show();
                 successIntent.putExtra("odernumber", "null");
                 successIntent.putExtra("istrue",false);
                 startActivity(successIntent);
             }
         });
+        }
+
+    });
 
 }
 
 private long cheakchild() {
 
-        appActivity.getMyRef().child("Oder").addValueEventListener(new ValueEventListener() {
+        appActivity.getMyRef().child("Order").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                if (snapshot.exists())
@@ -320,7 +323,7 @@ private long cheakchild() {
 
                 break;
             case R.id.lastoder:
-            startActivity(new Intent(getApplicationContext(), oldoders.class));
+            startActivity(new Intent(getApplicationContext(), oldorders.class));
                 break;
             case R.id.aboutus:
 

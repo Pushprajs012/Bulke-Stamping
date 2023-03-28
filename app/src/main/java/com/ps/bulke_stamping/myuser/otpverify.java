@@ -2,42 +2,35 @@ package com.ps.bulke_stamping.myuser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AlertDialogLayout;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.ps.bulke_stamping.Admin.AdminOrder;
 import com.ps.bulke_stamping.AppActivity;
-import com.ps.bulke_stamping.MainActivity;
+import com.ps.bulke_stamping.DetailClasses.UserDetail;
 import com.ps.bulke_stamping.R;
-import com.ps.bulke_stamping.myuser.grahak.GrahkDetail;
 
 import java.util.concurrent.TimeUnit;
 
@@ -48,6 +41,7 @@ public class otpverify extends AppCompatActivity {
     private Button btnverify;
     private ProgressDialog progressDialog;
     private EditText[] editTexts;
+    private AppActivity appActivity;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -77,9 +71,6 @@ public class otpverify extends AppCompatActivity {
 
                                 Toast.makeText(otpverify.this, "You are login", Toast.LENGTH_SHORT).show();
                                 signInWithPhoneAuthCredential(credential);
-                                startActivity(new Intent(otpverify.this,UserDeshboard.class));
-
-
 
                             }
 
@@ -132,12 +123,35 @@ public class otpverify extends AppCompatActivity {
                         FirebaseUser user = task.getResult().getUser();
                         System.out.println(user);
 
+                        appActivity.getMyRef().child("user").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                UserDetail userDetail=snapshot.getValue(UserDetail.class);
+                                appActivity.setUserDetail(snapshot.getValue(UserDetail.class));
+                                System.out.println(userDetail==null);
+                                Intent intent=new Intent(otpverify.this, UserDashboard.class);
+
+                                if (userDetail == null){
+                                    intent.putExtra("isuserhavedetail", false);
+                                    startActivity(intent);
+                                }
+                                else if (appActivity.getUserDetail().getUsertype().equals("admin")){
+                                    startActivity(new Intent(otpverify.this, AdminOrder.class));
+                                }
+
+                                else{
+                                    intent.putExtra("isuserhavedetail", true);
+                                    startActivity(intent);}
+                                finish();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
 
-
-
-                        // Update UI
-                        startActivity(new Intent(otpverify.this,UserDeshboard.class));
                         progressDialog.dismiss();
 
                     } else {
@@ -151,6 +165,7 @@ public class otpverify extends AppCompatActivity {
     private void findid(){
         setphone=findViewById(R.id.showphoneno);
         btnverify=findViewById(R.id.enter);
+        appActivity= (AppActivity) getApplication();
         otp1=findViewById(R.id.otp1);
         otp2=findViewById(R.id.otp2);
         otp3=findViewById(R.id.otp3);

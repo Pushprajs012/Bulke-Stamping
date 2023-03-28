@@ -14,7 +14,7 @@
         android:theme="@style/Theme.BulkEStamping"
         tools:targetApi="31">
         <activity
-            android:name=".myuser.grahak.oldoders"
+            android:name=".myuser.grahak.oldorders"
             android:exported="false" />
         <activity
             android:name=".myuser.otpverify"
@@ -29,8 +29,10 @@
         <activity
             android:name=".myuser.grahak.Successoder"
             android:exported="false" />
+        <activity android:name=".Admin.AdminOrder"
+            android:exported="false"/>
         <activity
-            android:name=".myuser.UserDeshboard"
+            android:name=".myuser.UserDashboard"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

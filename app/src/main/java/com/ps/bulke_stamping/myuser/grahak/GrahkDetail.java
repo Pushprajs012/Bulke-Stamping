@@ -1,6 +1,5 @@
 package com.ps.bulke_stamping.myuser.grahak;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.ps.bulke_stamping.AppActivity;
 import com.ps.bulke_stamping.R;
-import com.ps.bulke_stamping.myuser.UserDeshboard;
 import com.ps.bulke_stamping.DetailClasses.UserDetail;
 
 import java.util.ArrayList;
@@ -166,7 +164,7 @@ public class GrahkDetail extends AppCompatActivity {
                appActivity.getMyRef().child("user").child(user.getUid()).setValue(new UserDetail(name.getEditText().getText().toString(), no.getEditText().getText().toString(), selected, selectedteh, address.getEditText().getText().toString(), pin.getEditText().getText().toString(),"grahak")).addOnCompleteListener(GrahkDetail.this, task -> {
                    if (task.isSuccessful()) {
                        Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
-                       //startActivity(new Intent(this, UserDeshboard.class));
+                       //startActivity(new Intent(this, UserDashboard.class));
                        finish();
 
                    } else {

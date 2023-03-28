@@ -4,14 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,23 +24,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
-import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthOptions;
-import com.google.firebase.auth.PhoneAuthProvider;
-import com.ps.bulke_stamping.myuser.UserDeshboard;
+import com.ps.bulke_stamping.myuser.UserDashboard;
 import com.ps.bulke_stamping.myuser.otpverify;
-
-import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener{
@@ -153,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     ((AppActivity) getApplication()).getFirebaseAuth().signInWithCredential(authCredential)
                             .addOnSuccessListener(MainActivity.this, authResult -> {
                                 Toast.makeText(this, "okkk", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(MainActivity.this, UserDeshboard.class));
+                                startActivity(new Intent(MainActivity.this, UserDashboard.class));
                                 progressDialog.dismiss();
 
 
@@ -197,10 +184,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     10, null, 0, 0, 0);
         } catch (IntentSender.SendIntentException e) {
             e.printStackTrace();
-            System.out.println(e);
         }
-
-
 
     }
 }

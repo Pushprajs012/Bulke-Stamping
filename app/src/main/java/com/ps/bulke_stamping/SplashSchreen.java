@@ -13,7 +13,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.ps.bulke_stamping.myuser.UserDeshboard;
+import com.ps.bulke_stamping.Admin.AdminOrder;
+import com.ps.bulke_stamping.myuser.UserDashboard;
 import com.ps.bulke_stamping.DetailClasses.UserDetail;
 
 public class SplashSchreen extends AppCompatActivity {
@@ -40,8 +41,22 @@ public class SplashSchreen extends AppCompatActivity {
                     appActivity.getMyRef().child("user").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            UserDetail userDetail=snapshot.getValue(UserDetail.class);
                             appActivity.setUserDetail(snapshot.getValue(UserDetail.class));
-                            startActivity(new Intent(SplashSchreen.this, UserDeshboard.class));
+                            System.out.println(userDetail==null);
+                            Intent intent=new Intent(SplashSchreen.this, UserDashboard.class);
+
+                            if (userDetail == null){
+                                intent.putExtra("isuserhavedetail", false);
+                                startActivity(intent);
+                            }
+                            else if (appActivity.getUserDetail().getUsertype().equals("admin")){
+                              startActivity(new Intent(SplashSchreen.this, AdminOrder.class));
+                            }
+
+                            else{
+                                intent.putExtra("isuserhavedetail", true);
+                                startActivity(intent);}
                             finish();
                         }
 
